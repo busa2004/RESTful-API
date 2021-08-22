@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.repository.DeptDao">
+
+	<select id="getDepts" resultType="com.example.demo.model.Dept" >
+      SELECT id,
+             name,
+             tel
+        FROM dept
+    </select>
+    
+    <select id="getDept" parameterType="long" resultType="com.example.demo.model.Dept" >
+      SELECT id,
+             name,
+             tel
+        FROM dept
+       WHERE id = #{id}
+    </select>
+    
+    <insert id="insertDept" parameterType="com.example.demo.model.Dept" useGeneratedKeys="true" keyProperty="id" >
+      INSERT INTO dept(id,name,tel) values(#{id},#{name},#{tel})
+    </insert>
+	
+	<delete id="deleteDept" parameterType="long" >
+      delete from dept where id = #{id}
+    </delete>
+    
+    <update id="updateDept" parameterType="com.example.demo.model.Dept" >
+      update dept 
+         set name = #{name},
+             tel  = #{tel} 
+       where id = #{id}
+    </update>
+    
+
+
+</mapper>

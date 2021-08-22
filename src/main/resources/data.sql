@@ -1,0 +1,1 @@
+INSERT INTO dept(id,name) VALUES (1,'±‚»π∫Œ');
